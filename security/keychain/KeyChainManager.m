@@ -7,7 +7,7 @@
 /*
  presquite
     apple's KeyChainItemWrapper, m
-    and BuildPahses -> Compile Sources -> -fno-obj-arc
+    and BuildPahses -> Compile Sources -> --fno-objc-arc
 */
 
 #import "KeyChainManager.h"
