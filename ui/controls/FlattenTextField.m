@@ -1,9 +1,7 @@
 //
 //  FlattenTextField.m
-//  alo-test
 //
 //  Created by breaklee on 2014. 10. 16..
-//  Copyright (c) 2014년 wescan. All rights reserved.
 //
 
 #import "FlattenTextField.h"
@@ -11,9 +9,9 @@
 @interface FlattenTextField ()
 
 @property (nonatomic, strong) UIImage *leftViewImage;
-@property (nonatomic, strong) UIButton *secureTextEntryToggle;
 @property (nonatomic, strong) UIImage *secureTextEntryImageVisible;
 @property (nonatomic, strong) UIImage *secureTextEntryImageHidden;
+@property (nonatomic, strong) UIButton *secureTextEntryToggle;
 
 @end
 

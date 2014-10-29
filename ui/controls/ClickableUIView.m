@@ -1,9 +1,7 @@
 //
 //  ClickableUIView.m
-//  alo
 //
 //  Created by breaklee on 2014. 10. 10..
-//  Copyright (c) 2014년 wescan. All rights reserved.
 //
 
 #import "ClickableUIView.h"
@@ -29,8 +27,8 @@
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
-    if(self.clickedBlock) {
-        self.clickedBlock(recognizer);
+    if(self.onClicked) {
+        self.onClicked(recognizer);
     }
 }
 
