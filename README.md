@@ -2,27 +2,23 @@ ios-libraries
 =============
 
 
-1. authentication
+---
+# authentication
 
-	facebook, google login wrapper
-	this source is facebook, google ( or something ) api wrapper
+    facebook, google login wrapper
+    this source is facebook, google ( or something ) api wrapper
 
-
-
-	AppDelegate.h
-
+``` objective-c
 	#import "SessionManager.h"
 
 	@interface AppDelegate : UIResponder <UIApplicationDelegate, SessionManagerDelegate>
-
 	- (void)session:(id)sender changed:(SessionStateType)type;
-
 	@end
+```
 
 
-	AppDelegate.m
-
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+``` objective-c
+    - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	    [[SessionManager sharedSessionManager] sessionLoad:^(BOOL opened) {
 	    }];
 	    return YES;
@@ -57,4 +53,5 @@ ios-libraries
 	            break;
 	    }
 	}
+```
 	    
