@@ -138,6 +138,10 @@
 //ICFCustomOperation *operation =
 //[[ICFCustomOperation alloc] initWithIteration:iteration andDelegate:self];
 
+//dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//    NSLog(@"parameter1: %d parameter2: %f", parameter1, parameter2);
+//});
+
 @protocol CustomOperationDelegate <NSObject>
 
 - (void)updateTableWithData:(NSArray *)moreData;
