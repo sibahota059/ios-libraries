@@ -18,7 +18,6 @@
  
  UIPanGestureRecognizer
  UISwipeGestureRecognizer
- UISwipeGestureRecognizer
  UILongPressGestureRecognizer
  */
 
