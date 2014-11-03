@@ -124,7 +124,12 @@ static NSString* _deviceToken = nil;
 }
 
 + (void)clearBadgeNumber {
-    if([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
+    if([[UIApplication sharedApplication] respondsToSelector:@selector(isRegisteredForRemoteNotifications)]) {
+        if([[UIApplication sharedApplication] isRegisteredForRemoteNotifications]) {
+            [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+        }
+    }
+    else {
         [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     }
 }
