@@ -120,8 +120,8 @@
     } else {
         
         if([GPPSignIn sharedInstance].googlePlusUser.birthday == nil) {
-            GTLPlusPerson *user = [GPPSignIn sharedInstance].googlePlusUser;
-            GTLPlusPersonAgeRange * ragne = user.ageRange;
+//            GTLPlusPerson *user = [GPPSignIn sharedInstance].googlePlusUser;
+//            GTLPlusPersonAgeRange * ragne = user.ageRange;
         }
         
         self.email = [GPPSignIn sharedInstance].userEmail;
