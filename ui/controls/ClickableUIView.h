@@ -4,9 +4,9 @@
 //  Created by breaklee on 2014. 10. 10..
 //
 
-@import UIKit;
+//typedef void(^ClickedEvent)(UITapGestureRecognizer *);
 
-typedef void(^ClickedEvent)(UITapGestureRecognizer *);
+@import UIKit;
 
 @interface ClickableUIView : UIView
 
