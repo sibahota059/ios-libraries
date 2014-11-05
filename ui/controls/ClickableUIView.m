@@ -19,11 +19,23 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if(self) {
-        UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
-        singleFingerTap.numberOfTapsRequired = 1;
-        [self addGestureRecognizer:singleFingerTap];
+        [self initialize];        
     }
     return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if(self) {
+        [self initialize];
+    }
+    return self;
+}
+
+- (void) initialize {
+    UITapGestureRecognizer *singleFingerTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    singleFingerTap.numberOfTapsRequired = 1;
+    [self addGestureRecognizer:singleFingerTap];
 }
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
