@@ -82,6 +82,9 @@
 - (void)signOut {
     NSLog(@"Google : %@", NSStringFromSelector(_cmd));
     [[GPPSignIn sharedInstance] signOut];
+    if ([(id)self.delegate respondsToSelector:@selector(session:changed:)]) {
+        [self.delegate session:self changed:SS_LOGOUTED];
+    }
 }
 
 - (void)sessionLoad:(SessonStateHandler)handler {
@@ -94,14 +97,16 @@
     NSLog(@"Google : %@, opened : %d", NSStringFromSelector(_cmd), ([[GPPSignIn sharedInstance] authentication] != nil));
     if(handler) {
         GTMOAuth2Authentication *auth = [[GPPSignIn sharedInstance] authentication];
-        handler(auth != nil);
+        SessionStateType type = (auth != nil) ? SS_LOGINED : SS_LOGOUTED;
+        handler(type);
     }
 }
 
 - (void)sessionIsCached:(SessonStateHandler)handler {
     NSLog(@"Google : %@", NSStringFromSelector(_cmd));
     if(handler) {
-        handler([[GPPSignIn sharedInstance] hasAuthInKeychain]);
+        SessionStateType type = [[GPPSignIn sharedInstance] hasAuthInKeychain] ? SS_CACHED : SS_LOGOUTED;
+        handler(type);
     }
 }
 
@@ -129,7 +134,8 @@
     }
     
     if(_loginHandler) {
-        _loginHandler(error == nil);
+        SessionStateType type = (error == nil) ?  SS_LOGINED : SS_LOGOUTED;
+        _loginHandler(type);
     }
     
     if ([(id)self.delegate respondsToSelector:@selector(session:changed:)]) {

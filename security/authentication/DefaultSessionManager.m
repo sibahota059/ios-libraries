@@ -22,7 +22,7 @@
 - (void)signIn:(SessonStateHandler)handler {
     NSLog(@"warning : defaultSessionManager should be not worked!!!");
     if(handler) {
-        handler(NO);
+        handler(SS_LOGOUTED);
     }
 }
 
@@ -45,21 +45,21 @@
 - (void)sessionLoad:(SessonStateHandler)handler {
     NSLog(@"warning : defaultSessionManager should be not worked!!!");
     if(handler) {
-        handler(NO);
+        handler(SS_LOGOUTED);
     }
 }
 
 - (void)sessionIsCached:(SessonStateHandler)handler {
     NSLog(@"warning : defaultSessionManager should be not worked!!!");
     if(handler) {
-        handler(NO);
+        handler(SS_LOGOUTED);
     }
 }
 
 - (void)sessionIsOpened:(SessonStateHandler)handler {
     NSLog(@"warning : defaultSessionManager should be not worked!!!");
     if(handler) {
-        handler(NO);
+        handler(SS_LOGOUTED);
     }
 }
 

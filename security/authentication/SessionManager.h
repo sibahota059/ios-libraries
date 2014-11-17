@@ -5,8 +5,6 @@
 //
 //
 
-typedef void (^SessonStateHandler) (BOOL opened);
-
 #define SESSION_LOGOUT          @""
 #define SESSION_FACEBOOK_TAG    1
 #define SESSION_GOOGLE_TAG      2
@@ -20,8 +18,13 @@ typedef void (^SessonStateHandler) (BOOL opened);
 
 typedef NS_OPTIONS(NSUInteger, SessionStateType) {
     SS_LOGOUTED,
-    SS_LOGINED
+    SS_LOGINED,
+    SS_OPENING,
+    SS_CACHED
 } ;
+
+typedef void (^SessonStateHandler) (SessionStateType opened);
+
 
 @protocol SessionManagerDelegate
 - (void)session:(id)sender changed:(SessionStateType)type;

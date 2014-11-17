@@ -149,7 +149,7 @@ presquites
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:SESSION_TYPE_KEY];
         [[NSUserDefaults standardUserDefaults] synchronize];
         if(handler) {
-            handler(NO);
+            handler(SS_LOGOUTED);
         }
     }
 }
@@ -157,8 +157,12 @@ presquites
 - (void)sessionIsCached:(SessonStateHandler)handler {
     NSLog(@"Facebook : %@", NSStringFromSelector(_cmd));
     if(handler) {
-        handler(FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded &&
-                FBSession.activeSession.state != FBSessionStateOpen);
+        SessionStateType type = SS_LOGINED;
+        if(FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded &&
+           FBSession.activeSession.state != FBSessionStateOpen) {
+            type = SS_CACHED;
+        }
+        handler(type);
     }
 }
 
@@ -166,7 +170,15 @@ presquites
     FBSessionState state = FBSession.activeSession.state;
     NSLog(@"Facebook : %@, opened : %d, %d", NSStringFromSelector(_cmd), (state == FBSessionStateOpen), state);
     if(handler) {
-        handler((state == FBSessionStateOpen));
+        
+        SessionStateType type = SS_LOGOUTED;
+        if(state == FBSessionStateCreatedOpening) {
+            type = SS_OPENING;
+        }
+        else if(state == FBSessionStateOpen) {
+            type = SS_LOGINED;
+        }
+        handler(type);
     }
 }
 
@@ -185,7 +197,14 @@ presquites
                                   completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
                                       [self sessionStateChanged:state error:error];
                                       if(handler) {
-                                          handler(state == FBSessionStateOpen);
+                                          SessionStateType type = SS_LOGOUTED;
+                                          if(state == FBSessionStateCreatedOpening) {
+                                              type = SS_OPENING;
+                                          }
+                                          else if(state == FBSessionStateOpen) {
+                                              type = SS_LOGINED;
+                                          }
+                                          handler(type);
                                       }
                                   }];
 }
