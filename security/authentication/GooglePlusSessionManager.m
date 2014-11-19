@@ -117,8 +117,11 @@
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error {
-    NSLog(@"Google : %@, error : %@", NSStringFromSelector(_cmd), error);
-    NSLog(@"Received error %@ and auth object %@",error, auth);    
+    
+    NSLog(@"Google : %@, %@", NSStringFromSelector(_cmd),  auth);
+    if(error) {
+        NSLog(@"Google : error, %@", error);
+    }
     if (error) {
         self.email = nil;
         self.imagePath = nil;
