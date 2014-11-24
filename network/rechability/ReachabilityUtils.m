@@ -36,13 +36,13 @@ static ReachabilityAlert *__currentReachabilityAlert = nil;
         return;
     }
     __currentReachabilityAlert = self;
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"인터넷 연결 안됨", @"")
-                                                        message:NSLocalizedString(@"현제 인터넷이 Offline 상태 입니다..", @"")
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"not connected to internet", @"")
+                                                        message:NSLocalizedString(@"current offline..", @"")
                                                        delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"확인", @"")
+                                              cancelButtonTitle:NSLocalizedString(@"OK", @"")
                                               otherButtonTitles:nil];
     if (self.block) {
-        [alertView addButtonWithTitle:NSLocalizedString(@"재시도?", @"")];
+        [alertView addButtonWithTitle:NSLocalizedString(@"retry?", @"")];
     }
     [alertView show];
 }
