@@ -14,3 +14,16 @@
 + (NSString*)hashMD5Data:(NSData*)data;
 
 @end
+
+
+/*
+
+	NSUserDefaults 공장 초기 설정 등록
+	AppDelegate +initialize {
+		NSUerDefaults *shared = NSUserDefaults sharedDefaults];
+		NSDictionary *dic = @{@"abc":"ded", @"sdf":@"sdfs"};
+		[shared registerDefaults:dic];
+		[dic intergerForKey:@""];
+
+	}
+*/
