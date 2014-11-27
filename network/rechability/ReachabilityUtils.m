@@ -1,11 +1,8 @@
 //
 //  ReachabilityUtils.m
-//  stoker
 //
 //  Created by breaklee on 7/30/14.
-//  Copyright (c) 2014 zzolgit. All rights reserved.
 //
-
 
 #import "Reachability.h"
 #import "ReachabilityUtils.h"
@@ -36,8 +33,8 @@ static ReachabilityAlert *__currentReachabilityAlert = nil;
         return;
     }
     __currentReachabilityAlert = self;
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"not connected to internet", @"")
-                                                        message:NSLocalizedString(@"current offline..", @"")
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Not connected to Internet", @"")
+                                                        message:NSLocalizedString(@"current Offline..", @"")
                                                        delegate:self
                                               cancelButtonTitle:NSLocalizedString(@"OK", @"")
                                               otherButtonTitles:nil];
@@ -101,7 +98,5 @@ static Reachability *internetReachability;
     
 #pragma clang diagnostic pop
 }
-
-
 
 @end

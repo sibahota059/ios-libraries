@@ -13,6 +13,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
+ [self needsToDisplay] 호출 시, runloop 에서 모든 뷰의 drawRect 를 호출.
 }
 */
 
